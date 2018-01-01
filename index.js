@@ -41,6 +41,12 @@
     document.body.classList.add('touch');
   });
 
+  // Detect whether we are in an iframe or not
+  document.body.classList.add('in-iframe');
+  if (window.self == window.top) {
+    document.body.classList.remove('in-iframe');
+  }
+
   // Use tooltip fallback mode on IE < 11.
   if (bowser.msie && parseFloat(bowser.version) < 11) {
     document.body.classList.add('tooltip-fallback');
